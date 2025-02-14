@@ -1,4 +1,4 @@
-// https://coderun.yandex.ru/selections/backend/problems/calendar-formatting
+//  https://coderun.yandex.ru/selections/backend/problems/calendar-formatting
 package main
 
 import (
