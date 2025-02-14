@@ -12,6 +12,7 @@
             "program": "${workspaceFolder}",
             "debugAdapter": "legacy",
             
+            
             "dlvFlags": [
                 "-r",
                 "stdin:input",
