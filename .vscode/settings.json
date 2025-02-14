@@ -1,0 +1,16 @@
+{
+    "code-runner.customCommand": "go run main.go",
+    "sqltools.connections": [
+        {
+            "previewLimit": 50,
+            "server": "localhost",
+            "port": 5432,
+            "driver": "PostgreSQL",
+            "name": "user",
+            "socketPath": "/var/run/postgresql/.s.PGSQL.5432",
+            "database": "user",
+            "username": "user",
+            "password": "user"
+        }
+    ]
+}
