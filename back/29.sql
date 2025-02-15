@@ -1,5 +1,7 @@
--- @conn user
--- @block COMPANY
+-- @conn coderun
+
+
+-- @block init
 DROP TABLE IF EXISTS requests;
 CREATE TABLE IF NOT EXISTS requests (
     datetime TIMESTAMP,
@@ -32,10 +34,12 @@ INSERT INTO requests VALUES
 ('1970-01-01 00:00:00.710', '2c9a2700-090b-40a1-8137-2b3390594ad7',                                   NULL, 'balancer.test.yandex.ru', 'ResponseReceived', 'backend1.ru ERROR'),
 ('1970-01-01 00:00:00.715', '2c9a2700-090b-40a1-8137-2b3390594ad7',                                   NULL, 'balancer.test.yandex.ru',     'ResponseSent', '');
 
--- @block COMPANY
+
+-- @block show
 select * FROM requests;
 
--- @block COMPANY
+
+-- @block test
 SELECT * FROM requests WHERE host='balancer.test.yandex.ru' AND type='RequestSent';
 
 SELECT * FROM requests WHERE host='backend1.ru' AND type='RequestReceived';

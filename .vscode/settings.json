@@ -8,7 +8,7 @@
             "driver": "PostgreSQL",
             "name": "user",
             "socketPath": "/var/run/postgresql/.s.PGSQL.5432",
-            "database": "user",
+            "database": "coderun",
             "username": "user",
             "password": "user"
         }
