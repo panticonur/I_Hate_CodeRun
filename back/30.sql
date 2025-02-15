@@ -56,7 +56,6 @@ INSERT INTO track_genre(track_id, genre_id) VALUES
 
 -- @block
 
-
 WITH RECURSIVE Rt AS (
     SELECT
             tr.id AS track_id,
