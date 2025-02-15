@@ -55,7 +55,6 @@ INSERT INTO track_genre(track_id, genre_id) VALUES
     (5, 7);
 
 
-
 -- @block
 
 WITH RECURSIVE Rt AS (
