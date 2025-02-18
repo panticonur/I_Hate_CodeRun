@@ -1,4 +1,4 @@
-// https://coderun.yandex.ru/selections/backend/problems/calendar-formatting
+// https://coderun.yandex.ru/selections/backend/problems/diversity-scoring
 package main
 
 import (
@@ -7,7 +7,6 @@ import (
 	"log"
 	"os"
 	"strconv"
-	"strings"
 )
 
 func ScanWord() string {
@@ -36,42 +35,51 @@ var scanner = func() *bufio.Scanner {
 }()
 
 func main() {
-	x, n := 1, ScanInt()
-	w := ScanWord()
-	if w == "Tuesday" {
-		x = 0
-	} else if w == "Wednesday" {
-		x = -1
-	} else if w == "Thursday" {
-		x = -2
-	} else if w == "Friday" {
-		x = -3
-	} else if w == "Saturday" {
-		x = -4
-	} else if w == "Sunday" {
-		x = -5
+	n := ScanInt()
+	P := make(map[int]int, n)
+	C := make([]int, n)
+	for i := 1; i <= n; i++ {
+		P[ScanInt()] = ScanInt()
 	}
-	for x <= n {
-		var b strings.Builder
-		for i := 1; i <= 7; i++ {
-			s := strconv.Itoa(x)
-			if x > 0 && x < 10 {
-				b.WriteByte('.')
-			}
-			if x > 0 && x <= n {
-				b.WriteString(s)
-			} else {
-				if x <= n {
-					b.WriteString("..")
-				} else {
-					b.WriteString("  ")
-				}
-			}
-			if i < 7 {
-				b.WriteByte(' ')
-			}
-			x++
+
+	M := make(map[int]bool, n)
+	for i := 0; i < n; i++ {
+		c := P[ScanInt()]
+		C[i] = c
+		M[c] = false
+	}
+
+	log.Println(C)
+	min := len(C)
+
+	for i := 0; i < n; i++ {
+		c := C[i]
+		if M[c] {
+			continue
 		}
-		fmt.Println(b.String())
+
+		for j, J := i+1, i; j < n; j++ {
+			if C[j] == c {
+				if j-J < min {
+					min = j - J
+				}
+				J = j
+			}
+		}
+		for j, J := i-1, i; j >= 0; j-- {
+			if C[j] == c {
+				if J-j < min {
+					min = J - j
+				}
+				J = j
+			}
+		}
+
+		M[c] = true
+		if min <= 1 {
+			break
+		}
 	}
+
+	fmt.Println(min)
 }
