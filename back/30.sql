@@ -80,5 +80,3 @@ UNION
 SELECT track_id, genre_id, track_name, genre_name
 FROM Rt
 ORDER BY track_id, genre_id;
-
-
