@@ -1,6 +1,6 @@
 -- https://coderun.yandex.ru/selections/backend/problems/genres
--- @block
 
+-- @block
 DROP TABLE IF EXISTS genre CASCADE;
 CREATE TABLE genre (
     id bigint PRIMARY KEY,
@@ -55,11 +55,10 @@ INSERT INTO track_genre(track_id, genre_id) VALUES
     (5, 7);
 
 -- @block
-
 WITH RECURSIVE Rt AS (
     SELECT
             tr.id AS track_id,
-            ge.id AS genre_id,\
+            ge.id AS genre_id,
             tr.name AS track_name,
             ge.name AS genre_name,
             ge.parent_genre_id AS ge_parent
