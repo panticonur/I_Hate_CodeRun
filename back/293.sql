@@ -1,5 +1,5 @@
 -- https://coderun.yandex.ru/problem/sql-users-active-sessions?compiler=sqlite
-
+-- @conn coderun
 -- @block
 DROP TABLE IF EXISTS logs;
 CREATE TABLE logs (

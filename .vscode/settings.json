@@ -3,10 +3,10 @@
     "sqltools.connections": [
         {
             "previewLimit": 50,
-            "server": "localhost",
-            "port": 5432,
+            // "server": "localhost",
+            // "port": 5432,
             "driver": "PostgreSQL",
-            "name": "user",
+            "name": "coderun",
             "socketPath": "/var/run/postgresql/.s.PGSQL.5432",
             "database": "coderun",
             "username": "user",
