@@ -1,4 +1,4 @@
-// https://coderun.yandex.ru/selections/2024-summer-backend/problems/divisors-number
+// https://coderun.yandex.ru/selections/2024-summer-backend/problems/couple-of-letters
 package main
 
 import (
@@ -22,21 +22,31 @@ var scanner = func() *bufio.Scanner {
 }()
 
 func main() {
-	n := ScanInt()
-	max, x := 0, 0
-	for i := 1; i <= n; i++ {
-		c := 0
-		for j := 1; j <= i; j++ {
-			if i%j == 0 {
-				c++
-			}
-		}
-		if c >= max {
-			max = c
-			x = i
-		}
-		log.Println(i, c)
+	var words []string
+	for scanner.Scan() {
+		w := scanner.Text()
+		words = append(words, w)
 	}
-	fmt.Println(x)
-	fmt.Println(max)
+	log.Println(words)
+
+	m := make(map[string]int)
+	max := 0
+	pair := ""
+	for _, w := range words {
+		for i, l := 0, len(w)-1; i < l; i++ {
+			ab := w[i : i+2]
+			p := m[ab] + 1
+			m[ab] = p
+			if p > max {
+				max = p
+				pair = ab
+			}
+			if p == max && ab > pair {
+				pair = ab
+			}
+			log.Println(ab)
+		}
+	}
+	log.Println(m)
+	fmt.Println(pair)
 }
