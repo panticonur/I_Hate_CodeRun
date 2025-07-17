@@ -1,4 +1,4 @@
-// https://coderun.yandex.ru/problem/rocks-and-jewels
+// https://coderun.yandex.ru/selections/backend/problems/rocks-and-jewels
 package main
 
 import (
